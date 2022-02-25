@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import dynamic from 'next/dynamic';
 import Layout from '../components/Layout'
+
+
+const DynamicLordIcon = dynamic(() => import('../components/icons/LordIcons'), {
+  ssr: false
+});
 
 const IndexPage = () => {
   const [files, setFiles] = useState<String[]>([]);
@@ -13,12 +19,12 @@ const IndexPage = () => {
 
   return (
     <Layout title="Home | Next.js + TypeScript + Electron Example">
-      <h1>Hello Next.js 👋</h1>
+    <DynamicLordIcon/>
+      <h1 className='italic'>Hello Next.js 👋</h1>
       <p>
         <Link href="/about">
           <a>About</a>
         </Link>
-
         {files.map(file => (
           <p>{file}</p>
         ))}
