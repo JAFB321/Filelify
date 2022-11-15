@@ -32,6 +32,8 @@ app.on('ready', async () => {
   mainWindow.loadURL(url)
 })
 
+
+
 // Quit the app once all windows are closed
 app.on('window-all-closed', app.quit)
 
