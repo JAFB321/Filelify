@@ -15,10 +15,13 @@ declare global {
   }
 }
 
+export interface csvData {timestamp: string[], temperature: string[], humidity: string[]} 
+
 declare global {
   interface Window {
     files: {
-      getFiles: () => String[]
+      startDrag: (path: string) => void,
+      getDataFromCsv: (filePath: string) => csvData
     }
   }
 }
